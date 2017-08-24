@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<div class="content clearfix">
+  		<%- include left%>
+  		<div class="main">
+		    <h1><%= title %></h1>
+		    <form class="form-horizontal">
+		    	
+		    		
+			    	<div class="form-group">
+			    		<label class="col-xs-2 control-label">标题</label>
+			    		<div class="col-xs-4"><input type="text" class="form-control title"></div>
+			    	</div>
+		    	
+		    		
+			    	<div class="form-group">
+			    		<label class="col-xs-2 control-label">内容</label>
+              <div class="col-xs-9">
+			    		   <textarea class="form-control post"></textarea>
+              </div>
+			    	</div>
+		    	
+		    	
+		    		
+			    	<div class="col-xs-offset-2">
+			    		<button class="btn btn-primary" type="button" id="loginBtn">发表</button>
+			    	</div>
+		    	
+		    </form>
+  		</div>
+  	</div>
+  	<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  	<script type="text/javascript">
+  		$('#loginBtn').on('click', function(){
+  			$.ajax({
+  				type:'post',
+  				url:'/post',
+  				data:{title:$('.title').val(), content:$('.post').val()},
+  				success:function(data){
+  					if(data.code == 500){
+  						alert(data.message);
+  					}else if (data.code == 200){
+  						alert(data.message);
+  					}
+  					
+  				}
+  			})
+  		})
+  	</script>
+  </body>
+</html>

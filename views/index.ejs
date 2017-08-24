@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <div class="content">
+  		<%- include left%>
+  		<div class="main">
+		    <h1><%= title %></h1>
+		    <p>Welcome to <%= title %></p>
+		    <ul class="article">
+		    	<% posts.forEach(function(post, index){ %>
+					<li>
+						<h3><%= post.title%> </h3>
+						<p><%= post.name%><%= post.time.day%></p>
+						<div><%= post.content%></div>
+					</li>
+		    	<%})%>
+		    </ul>
+		 </div>	
+	</div>
+  </body>
+</html>

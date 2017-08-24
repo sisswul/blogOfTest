@@ -1,0 +1,31 @@
+<div class="left">
+  <% if(user) {%><h2 ><%= user.name%>，欢迎你</h2><%}%>
+	<ul>
+		<li>
+			<a href="/">home</a>
+		</li>
+    <% if(!user) {%>
+  		<li>
+  			
+  			<a href="/login">login</a>
+  		</li>
+  		<li>
+  			
+  			<a href="/register">register</a>
+  		</li>
+    <% } else{%>
+  		<li>
+  			<a href="/post">post</a>
+  			
+  		</li>
+      <li>
+        <a href="/upload">upload</a>
+        
+      </li>
+  		<li>
+  			<a href="/logout">logout</a>
+  			
+  		</li>
+    <%}%>
+	</ul>
+</div>
